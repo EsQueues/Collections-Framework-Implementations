@@ -1,14 +1,12 @@
 import java.util.Arrays;
 import java.util.Objects;
 
-public class MyArrayList <T>{
+public class MyArrayList <T>  {
     private int size;
 
     private T[]elementData=(T[]) new Object[10];
     /*i did not do any constructures(Initial capacity, etc.) because in daily use
     this constructures useless. Just i have gaven default capacity as in original ArrayList(10). */
-
-
 
     //this method is increase the size to 1
     private T[] grow(){
