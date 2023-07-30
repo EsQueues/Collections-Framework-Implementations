@@ -2,27 +2,57 @@ import java.util.*;
 
 public class Test  {
     public static void main(String[] args) {
-//        MyArrayList<Integer> list=new MyArrayList<>();
-//        list.add(1);
-//        list.add(3);
-//        list.add(9);
-//        list.add(3);
-//        list.add(0,99);
-//        list.add(1,18);
-//        list.add(6,0);
-//        System.out.println(list);
-//        list.remove(0);
-//        list.remove(6);
-//        System.out.println(list);
-        int arr[]=new int[10];
-        for(int i=0;i<5;i++){
-            arr[i]=i;
-        }
-        System.out.println(Arrays.toString(arr));
-        System.out.println(Arrays.toString(Arrays.copyOf(arr,5)));
+        Map<Person,String> map=new HashMap<>();
+        Set<Person> set=new HashSet<>();
+
+        Person person1=new Person(1,"Sayat");
+        Person person2=new Person(1,"Sayat");
+
+        map.put(person1,"123");
+        map.put(person2,"123");
+
+        set.add(person1);
+        set.add(person2);
 
 
+        System.out.println(map);
+        System.out.println(set);
 
+    }
 
+}
+class Person{
+    private int id;
+    private String name;
+
+    public Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (id != person.id) return false;
+        return Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 }
